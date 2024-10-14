@@ -8,8 +8,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "test": "jest --coverage"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@douyinfe/semi-ui": "^2.67.0",
