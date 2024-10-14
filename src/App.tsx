@@ -1,11 +1,12 @@
-import {createRouter, RouterProvider} from '@tanstack/react-router'
+import {createHashHistory, createRouter, RouterProvider} from '@tanstack/react-router'
 
 // Import the generated route tree
 import {routeTree} from './routeTree.gen'
 
+const hashHistory = createHashHistory()
 const basepath = import.meta.env.VITE_BASE_PATH
 // Create a new router instance
-const router = createRouter({routeTree, basepath: basepath})
+const router = createRouter({routeTree, basepath: basepath, history: hashHistory})
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
