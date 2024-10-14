@@ -34,9 +34,9 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.6.8
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-          BRANCH: pages
-          FOLDER: dist
-          CLEAN: true
+          token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          branch: pages
+          folder: dist
+          clean: true
