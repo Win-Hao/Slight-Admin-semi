@@ -9,8 +9,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run clean && npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@douyinfe/semi-ui": "^2.67.0",
@@ -20,7 +20,6 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "framer-motion": "^11.11.1",
-    "gh-pages": "^6.2.0",
     "js-yaml": "^4.1.0",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
@@ -43,6 +42,7 @@
     "eslint": "^9.11.1",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
+    "gh-pages": "^6.2.0",
     "globals": "^15.9.0",
     "postcss": "^8.4.47",
     "sass-embedded": "^1.79.4",
