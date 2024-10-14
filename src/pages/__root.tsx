@@ -2,6 +2,7 @@ import {createRootRoute, Link, Outlet} from '@tanstack/react-router'
 import useTheme from "@src/theme/hooks/useTheme.ts";
 import {Button} from "@douyinfe/semi-ui";
 import {motion} from 'framer-motion';
+import page404 from '@src/assets/images/page/404.png'
 
 export const Route = createRootRoute({
     component: RootLayout,
@@ -23,7 +24,7 @@ function NotFoundComponent() {
                     initial='hidden'
                     animate='visible'
                     transition={{type: "spring", bounce: 0.5}}
-                    src="/src/assets/images/page/404.png" alt="404"/>
+                    src={page404} alt="404"/>
         <Link to={'/dashboard/workbench'}>
             <Button size='large' theme={'solid'}>
                 BACK DASHBOARD</Button>

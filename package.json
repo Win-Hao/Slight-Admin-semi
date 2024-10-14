@@ -2,7 +2,7 @@
   "name": "semi-admin",
   "private": true,
   "version": "0.0.0",
-  "homepage": " https://win-hao.github.io/Slight-Admin-semi/",
+  "homepage": " https://win-hao.github.io/Slight-Admin-semi",
   "type": "module",
   "scripts": {
     "dev": "vite",
