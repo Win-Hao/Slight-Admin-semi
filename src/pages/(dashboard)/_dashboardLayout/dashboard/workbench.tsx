@@ -66,7 +66,7 @@ function Workbench() {
                     </CusCard>
                 </div>
                 <div className='col-span-1'>
-                    <CusCard>
+                    <CusCard title='Top Authors'>
                         <TopAuthors/>
                     </CusCard>
                 </div>

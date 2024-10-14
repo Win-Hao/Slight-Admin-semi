@@ -3,9 +3,10 @@ import react from '@vitejs/plugin-react'
 import {resolve} from 'path'
 import {TanStackRouterVite} from '@tanstack/router-plugin/vite'
 
+const isDevelopment = process.env.NODE_ENV === 'development';
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: '/',
+    base: `${isDevelopment ? '/' : '/Slight-Admin-semi/'}`,
     plugins: [TanStackRouterVite(), react()],
     resolve: {
         alias: {

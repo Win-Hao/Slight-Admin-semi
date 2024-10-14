@@ -6,22 +6,25 @@ import {routerList} from "@src/config/routerList.tsx";
 import useLinkMenu from "@src/config/useLinkMenu.ts";
 import {useLocation, useNavigate} from "@tanstack/react-router";
 import {MenuItemType} from "#types/entity.ts";
+import {useState} from "react";
 
 const SideBar = ({isCollapseButton}: { isCollapseButton: boolean }) => {
     const settings = useSettings()
     const {setSettings} = useSettingsActions()
     const {isCollapsed} = settings
-
+    const LinkToMenuFn = useLinkMenu()
+    const routeMap = LinkToMenuFn(routerList)
+    const pathname = useLocation().pathname
+    const currentKey = Object.entries(routeMap).find(([, value]) => value === pathname)!
+    const [selectedKeys, setSelectedKeys] = useState<string[]>([currentKey[0]])
     const collapsedHandler = (isCollapse: boolean) => {
         setSettings({...settings, isCollapsed: isCollapse})
     }
 
     const routeToMenuFn = useRouteToMenu()
-    const LinkToMenuFn = useLinkMenu()
+
     const items = routeToMenuFn(routerList)
-    const routeMap = LinkToMenuFn(routerList)
-    const pathname = useLocation().pathname
-    const currentKey = Object.entries(routeMap).find(([, value]) => value === pathname)
+
     const navigate = useNavigate()
     const navHandler = (path: string) => {
         navigate({to: path}).then()
@@ -44,9 +47,12 @@ const SideBar = ({isCollapseButton}: { isCollapseButton: boolean }) => {
     }
     return (
         <Nav
-            selectedKeys={[currentKey![0]]}
             style={{height: '100%', width: isCollapsed ? '60px' : '260px'}}
             isCollapsed={isCollapsed}
+            selectedKeys={selectedKeys}
+            onSelect={({itemKey}) => {
+                setSelectedKeys([itemKey as string])
+            }}
             header={{
                 logo: <Wind theme="outline" size="36" className='text-semi-color-primary cursor-pointer'
                             onClick={() => {

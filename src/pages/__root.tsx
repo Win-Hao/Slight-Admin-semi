@@ -6,7 +6,7 @@ import page404 from '@src/assets/images/page/404.png'
 
 export const Route = createRootRoute({
     component: RootLayout,
-    notFoundComponent: NotFoundComponent
+    notFoundComponent: NotFoundComponent,
 })
 
 function RootLayout() {

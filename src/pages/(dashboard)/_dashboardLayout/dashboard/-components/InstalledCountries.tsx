@@ -8,6 +8,15 @@ interface DataSourceType {
     ios: string,
 }
 
+// 这个会批量导入符合条件的文件
+const images = import.meta.glob<{
+    [key: string]: { default: string }
+}>('@src/assets/images/countries/*.png', {eager: true});
+// 获取指定图片的路径
+const getImage = (icon: string) => {
+    const path = `/src/assets/images/countries/${icon}.png`;
+    return images[path] ? images[path].default : ''; // 或者返回一个默认图片
+};
 const dataSource: DataSourceType[] = [
     {
         country: 'China',
@@ -53,7 +62,7 @@ const InstalledCountries = () => {
                     <div className='flex flex-row items-center justify-between !mt-8' key={item.country}>
                         {/*Title*/}
                         <div className='flex flex-row items-center gap-2'>
-                            <img src={`/src/assets/images/countries/${item.icon}.png`} alt={item.country}
+                            <img src={getImage(item.icon) as string} alt={item.country}
                                  className='h-6 w-9'/>
                             <span className='!font-bold !text-gray-500'>{item.country}</span>
                         </div>

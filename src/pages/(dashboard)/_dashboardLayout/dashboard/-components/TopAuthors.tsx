@@ -13,14 +13,13 @@ const TopAuthors = () => {
         avatar: faker.image.avatar(), // 使用 faker 生成随机头像 URL
         nice: faker.number.int({min: 1, max: 100}) // 使用 faker 生成一个 1 到 100 之间的随机整数
     }))
-    console.log(dataSource)
     return (
         <>
             {dataSource.map((item) => (
-                <div className='flex flex-row items-center justify-between !mt-8'>
+                <div className='flex flex-row items-center justify-between !mt-8' key={item.fullName}>
                     {/*avatar*/}
                     <div className='flex flex-row items-center gap-3'>
-                        <img src={item.avatar} alt={item.fullName} className='h-10 w-10 rounded-full'/>
+                        <img src={item?.avatar} alt={item.fullName} className='h-10 w-10 rounded-full'/>
                         <div className='flex flex-col justify-center gap-1'>
                             <h1 className='!text-sm !font-bold text-gray-500/50'>{item.fullName}</h1>
                             <div className='flex flex-row items-center gap-2'>
