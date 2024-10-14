@@ -36,7 +36,7 @@ const PresetButton = () => {
     };
     return (
         <Popover content={renderContent} trigger="click">
-            <Button theme={'borderless'} className='mr-3'
+            <Button theme={'borderless'} className='!mr-3'
                     icon={<Platte theme="outline" size="20" fill="var(--semi-color-primary)"/>}>
             </Button>
         </Popover>

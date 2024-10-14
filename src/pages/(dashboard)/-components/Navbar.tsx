@@ -26,7 +26,7 @@ const Navbar = () => {
                     <ThemeButton/>
                     <PresetButton/>
                     <Button theme={'borderless'}
-                            className='mr-3'
+                            className='!mr-3'
                             icon={<Github theme="outline" size="24" fill="var(--semi-color-primary)"/>}
                             onClick={() => {
                                 window.open('https://github.com/Win-Hao', '_blank')
