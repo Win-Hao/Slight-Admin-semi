@@ -2,12 +2,15 @@
   "name": "semi-admin",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://github.com/Win-Hao/Slight-Admin-semi",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@douyinfe/semi-ui": "^2.67.0",
@@ -17,6 +20,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "framer-motion": "^11.11.1",
+    "gh-pages": "^6.2.0",
     "js-yaml": "^4.1.0",
     "normalize.css": "^8.0.1",
     "path": "^0.12.7",
