@@ -10,7 +10,7 @@ export const Route = createFileRoute('/(dashboard)/_dashboardLayout')({
 function DashboardLayout() {
     const {isCollapsed} = useSettings()
     return (
-        <div className="h-screen flex">
+        <div className="h-screen overflow-hidden flex">
             <div className='hidden md:!block md:fixed md:inset-y-0 md:z-50'>
                 <SideBar isCollapseButton={true}/>
             </div>

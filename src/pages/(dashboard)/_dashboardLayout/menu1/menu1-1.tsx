@@ -5,6 +5,6 @@ export const Route = createFileRoute(
     '/(dashboard)/_dashboardLayout/menu1/menu1-1',
 )({
     component: () => (
-        <CusCard>Hello /(dashboard)/_dashboardLayout/menu1/menu1-1!</CusCard>
+        <CusCard>Hello menu1-1!</CusCard>
     ),
 })

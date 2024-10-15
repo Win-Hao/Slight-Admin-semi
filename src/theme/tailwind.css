@@ -24,4 +24,8 @@
     :root {
         --color-cyan-500: 6 182 212
     }
+
+    body {
+        @apply overflow-hidden
+    }
 }
