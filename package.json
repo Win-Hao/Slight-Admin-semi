@@ -2,7 +2,7 @@
   "name": "semi-admin",
   "msw": {
     "workerDirectory": "./public"
-  }
+  },
   "private": true,
   "version": "0.0.0",
   "homepage": " https://win-hao.github.io/Slight-Admin-semi/",
