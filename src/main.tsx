@@ -10,6 +10,4 @@ createRoot(document.getElementById("root")!).render(
   </StrictMode>
 );
 const { worker } = await import("./mocks");
-if (import.meta.env.DEV) {
-  worker.start();
-}
+worker.start();
