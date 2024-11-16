@@ -5,18 +5,17 @@ name: Slight-admin-semi
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [ 20.10.0 ]
+        node-version: [20.10.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -30,6 +29,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: worker init
+        run: npx msw init ./public
       - name: Build
         run: npm run build
 
@@ -39,4 +40,4 @@ jobs:
           token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           branch: gh-pages
           folder: dist
-          clean: 'true'
+          clean: "true"
