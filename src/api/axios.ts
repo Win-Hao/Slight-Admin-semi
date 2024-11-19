@@ -44,7 +44,7 @@ instance.interceptors.response.use(
         console.error(res.msg || 'Error');
         return Promise.reject(new Error(res.msg || 'Error'));
       } else {
-        return response; // 直接返回实际数据
+        return response.data; // 直接返回实际数据
       }
     },
     (error) => {
@@ -72,12 +72,12 @@ instance.interceptors.response.use(
       return Promise.reject(error);
     }
   );
-  export function get<T = any>(url: string, params?: any, config?: AxiosRequestConfig): Promise<ApiResponse<T>> {
-    return instance.get(url, { params, ...config }).then((res) => res.data);
+  export function get<T = any>(url: string, params?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>> {
+    return instance.get(url, { params, ...config })
   }
   
   // 封装 post 方法
-  export function post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<ApiResponse<T>>{
-    return instance.post(url, data, { ...config }).then((res) => res.data);
+  export function post<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
+    return instance.post(url, data, { ...config })
   }
   

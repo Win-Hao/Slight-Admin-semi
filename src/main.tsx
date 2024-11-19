@@ -10,4 +10,4 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </StrictMode>
 );
-worker.start();
+worker.start({ onUnhandledRequest: "bypass" }).then();
