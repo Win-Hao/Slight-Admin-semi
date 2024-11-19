@@ -1,7 +1,7 @@
 import { redirect } from "@tanstack/react-router";
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
-const BASE_URL = "/api"; // 设置基础请求路径
+const BASE_URL = `/api`; // 设置基础请求路径
 
 // 定义响应数据的接口
 interface ApiResponse<T = any> {

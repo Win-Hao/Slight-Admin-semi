@@ -10,4 +10,11 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </StrictMode>
 );
-worker.start({ onUnhandledRequest: "bypass" }).then();
+worker
+  .start({
+    onUnhandledRequest: "bypass",
+    serviceWorker: {
+      url: "/Slight-Admin-semi/mockServiceWorker.js",
+    },
+  })
+  .then();

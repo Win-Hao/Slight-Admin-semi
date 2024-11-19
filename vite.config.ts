@@ -6,7 +6,7 @@ import {TanStackRouterVite} from '@tanstack/router-plugin/vite'
 const isDevelopment = process.env.NODE_ENV === 'development';
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: `${isDevelopment ? '/' : '/'}`,
+    base: `${isDevelopment ? '/' : '/Slight-Admin-semi/'}`,
     plugins: [TanStackRouterVite(), react()],
     resolve: {
         alias: {

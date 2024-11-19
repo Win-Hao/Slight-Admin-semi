@@ -10,7 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useAuth } from "./hooks/useAuth";
 
 const hashHistory = createHashHistory();
-const basePath = import.meta.env.VITE_BASE_PATH;
+const basePath = "/";
 // Create a new router instance
 const router = createRouter({
   routeTree,
