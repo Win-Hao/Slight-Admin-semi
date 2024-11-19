@@ -18,6 +18,7 @@ function DashboardLayout() {
     <div
       className="overflow-auto md:overflow-hidden flex"
       style={{
+        marginTop: "calc(env(safe-area-inset-top) * 2)",
         height: "calc(100vh - env(safe-area-inset-top) * 2)",
       }}
     >
@@ -30,7 +31,6 @@ function DashboardLayout() {
         <div
           style={{
             backgroundColor: "var(--semi-color-bg-1)",
-            paddingTop: "calc(env(safe-area-inset-top) * 2)",
           }}
           className="w-full sticky top-0 shrink-0 z-40 opacity-95"
         >
