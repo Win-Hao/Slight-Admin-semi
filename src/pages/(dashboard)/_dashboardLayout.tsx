@@ -15,12 +15,12 @@ export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
 function DashboardLayout() {
   const { isCollapsed } = useSettings();
   return (
-    <div className="overflow-auto md:overflow-hidden flex h-[calc(100vh_-_100px)] mt-[50px] md:mt-0 md:h-screen">
+    <div className="flex h-full">
       <div className="hidden md:!block md:fixed md:inset-y-0 md:z-50">
         <SideBar isCollapseButton={true} />
       </div>
       <div
-        className={`flex-1 transition-all duration-[200ms] overflow-auto flex flex-col pl-0 ${isCollapsed ? "md:pl-[60px]" : "md:pl-[260px]"}`}
+        className={`flex-1 transition-all duration-[200ms] overflow-y-auto flex flex-col pl-0 ${isCollapsed ? "md:pl-[60px]" : "md:pl-[260px]"}`}
       >
         <div
           style={{

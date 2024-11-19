@@ -1,9 +1,11 @@
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    height: 100%;
-    color: var(--semi-color-text-0);
-    background-color: var(--semi-color-bg-0);
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  color: var(--semi-color-text-0);
+  background-color: var(--semi-color-bg-0);
 }
