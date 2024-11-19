@@ -16,7 +16,7 @@ function DashboardLayout() {
   const { isCollapsed } = useSettings();
   return (
     <div
-      className="overflow-hidden flex"
+      className="overflow-auto md:overflow-hidden flex"
       style={{
         height: "calc(100vh + env(safe-area-inset-top) * 2)",
       }}
