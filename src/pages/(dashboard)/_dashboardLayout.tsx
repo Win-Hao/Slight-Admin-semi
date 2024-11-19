@@ -15,7 +15,12 @@ export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
 function DashboardLayout() {
   const { isCollapsed } = useSettings();
   return (
-    <div className="h-screen overflow-hidden flex">
+    <div
+      className="h-screen overflow-hidden flex"
+      style={{
+        height: "calc(100vh + env(safe-area-inset-top) * 2)",
+      }}
+    >
       <div className="hidden md:!block md:fixed md:inset-y-0 md:z-50">
         <SideBar isCollapseButton={true} />
       </div>
@@ -25,18 +30,13 @@ function DashboardLayout() {
         <div
           style={{
             backgroundColor: "var(--semi-color-bg-1)",
-            paddingTop: "env(safe-area-inset-top)",
+            paddingTop: "calc(env(safe-area-inset-top) * 2)",
           }}
           className="w-full sticky top-0 shrink-0 z-40 opacity-95"
         >
           <Navbar />
         </div>
-        <main
-          className="bg-semi-color-fill-0 !p-4 flex-1 w-full "
-          style={{
-            paddingBottom: "env(safe-area-inset-bottom)",
-          }}
-        >
+        <main className="bg-semi-color-fill-0 !p-4 flex-1 w-full ">
           <div className="max-w-screen-2xl !mx-auto">
             <Outlet />
           </div>

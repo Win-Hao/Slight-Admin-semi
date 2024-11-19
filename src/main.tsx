@@ -10,11 +10,12 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </StrictMode>
 );
+const isDevelopment = process.env.NODE_ENV === "development";
 worker
   .start({
     onUnhandledRequest: "bypass",
     serviceWorker: {
-      url: "/Slight-Admin-semi/mockServiceWorker.js",
+      url: `${isDevelopment ? "/mockServiceWorker.js" : "/Slight-Admin-semi/mockServiceWorker.js"}`,
     },
   })
   .then();
