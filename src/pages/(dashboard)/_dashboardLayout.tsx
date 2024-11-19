@@ -18,7 +18,7 @@ function DashboardLayout() {
     <div
       className="overflow-auto md:overflow-hidden flex"
       style={{
-        height: "calc(100vh + env(safe-area-inset-top) * 2)",
+        height: "calc(100vh - env(safe-area-inset-top) * 2)",
       }}
     >
       <div className="hidden md:!block md:fixed md:inset-y-0 md:z-50">
