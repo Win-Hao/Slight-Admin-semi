@@ -23,7 +23,10 @@ function DashboardLayout() {
         className={`flex-1 transition-all duration-[200ms] overflow-auto flex flex-col pl-0 ${isCollapsed ? "md:pl-[60px]" : "md:pl-[260px]"}`}
       >
         <div
-          style={{ backgroundColor: "var(--semi-color-bg-1)" }}
+          style={{
+            backgroundColor: "var(--semi-color-bg-1)",
+            paddingTop: "env(safe-area-inset-top)",
+          }}
           className="w-full sticky top-0 shrink-0 z-40 opacity-95"
         >
           <Navbar />
