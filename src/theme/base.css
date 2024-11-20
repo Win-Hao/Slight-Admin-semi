@@ -4,8 +4,8 @@ html {
 
 body {
   height: 100vh;
-  width: 100vw;
-  overflow-y: auto;
+  width: 100%;
+  overflow-y: scroll;
   color: var(--semi-color-text-0);
   background-color: var(--semi-color-bg-0);
 }
