@@ -30,7 +30,7 @@ function DashboardLayout() {
         >
           <Navbar />
         </div>
-        <main className="bg-semi-color-fill-0 !p-4 flex-1 w-full ">
+        <main className="bg-semi-color-fill-0 !p-4 flex-1 w-full min-h-[calc(100vh_-_60px)]">
           <div className="max-w-screen-2xl !mx-auto">
             <Outlet />
           </div>
