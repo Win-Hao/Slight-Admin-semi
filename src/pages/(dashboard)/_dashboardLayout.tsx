@@ -20,7 +20,7 @@ function DashboardLayout() {
         <SideBar isCollapseButton={true} />
       </div>
       <div
-        className={`flex-1 transition-all duration-[200ms] overflow-y-auto flex flex-col pl-0 ${isCollapsed ? "md:pl-[60px]" : "md:pl-[260px]"}`}
+        className={`flex-1 transition-all duration-[200ms] max-w-[100vw] flex flex-col pl-0 ${isCollapsed ? "md:pl-[60px]" : "md:pl-[260px]"}`}
       >
         <div
           style={{
