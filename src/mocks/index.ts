@@ -1,5 +1,6 @@
 import { setupWorker } from "msw/browser";
-import userMockApi from './handlers/auth';
+import authMockApi from './handlers/auth';
+import usersMockApi from './handlers/users';
 
-const handlers = [...userMockApi];
+const handlers = [...authMockApi,...usersMockApi];
 export const worker = setupWorker(...handlers);

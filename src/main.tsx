@@ -3,19 +3,19 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./theme/index.css";
 import { StrictMode } from "react";
-import { worker } from "./mocks";
+import { worker } from "./mocks/index.ts";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
-const isDevelopment = process.env.NODE_ENV === "development";
 worker
   .start({
     onUnhandledRequest: "bypass",
     serviceWorker: {
-      url: `${isDevelopment ? "/mockServiceWorker.js" : "/Slight-Admin-semi/mockServiceWorker.js"}`,
+      url: import.meta.env.VITE_MSW_URL,
     },
   })
-  .then();
+  .then(() => {
+    createRoot(document.getElementById("root")!).render(
+      <StrictMode>
+        <App />
+      </StrictMode>
+    );
+  });

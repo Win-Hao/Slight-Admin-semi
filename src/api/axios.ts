@@ -38,7 +38,6 @@ instance.interceptors.response.use(
     (response: AxiosResponse) => {
       // 假设后端的响应结构为 { code: number, message: string, data: T }
       const res: ApiResponse = response.data;
-  
       if (res.code !== 200) {
         // 可以根据自定义错误码来进行错误处理
         console.error(res.msg || 'Error');

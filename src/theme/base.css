@@ -9,3 +9,13 @@ body {
   color: var(--semi-color-text-0);
   background-color: var(--semi-color-bg-0);
 }
+
+#nprogress .bar {
+  background: var(--semi-color-primary);
+}
+
+#nprogress .peg {
+  box-shadow:
+    0 0 10px var(--semi-color-primary),
+    0 0 5px var(--semi-color-primary);
+}

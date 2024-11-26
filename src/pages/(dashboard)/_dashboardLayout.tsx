@@ -1,7 +1,14 @@
-import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Outlet,
+  redirect,
+  useRouterState,
+} from "@tanstack/react-router";
 import Navbar from "@src/pages/(dashboard)/-components/Navbar.tsx";
 import SideBar from "@src/pages/(dashboard)/-components/SideBar.tsx";
 import { useSettings } from "@src/store/settingsStore.ts";
+import { SpinLoading } from "@src/components/commons/Spin";
+import Watermark from "@uiw/react-watermark";
 
 export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
   beforeLoad: async ({ context }) => {
@@ -14,6 +21,8 @@ export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
 
 function DashboardLayout() {
   const { isCollapsed } = useSettings();
+  const { status } = useRouterState();
+  const username = localStorage.getItem("username");
   return (
     <div className="flex h-full">
       <div className="hidden md:!block md:fixed md:inset-y-0 md:z-50">
@@ -31,8 +40,16 @@ function DashboardLayout() {
           <Navbar />
         </div>
         <main className="bg-semi-color-fill-0 !p-4 flex-1 w-full min-h-[calc(100vh_-_60px)]">
-          <div className="max-w-screen-2xl !mx-auto">
-            <Outlet />
+          <div className="max-w-screen-2xl !mx-auto h-full">
+            <Watermark
+              content={username!}
+              gapX={120}
+              gapY={120}
+              className="h-full"
+              fontColor="rgba(0,0,0,0.1)"
+            >
+              {status === "pending" ? <SpinLoading /> : <Outlet />}
+            </Watermark>
           </div>
         </main>
       </div>

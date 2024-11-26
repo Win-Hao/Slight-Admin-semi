@@ -18,6 +18,7 @@ import { Route as dashboardDashboardLayoutImport } from './pages/(dashboard)/_da
 import { Route as authAuthLayoutImport } from './pages/(auth)/_authLayout'
 import { Route as authAuthLayoutSignUpImport } from './pages/(auth)/_authLayout/signUp'
 import { Route as authAuthLayoutLoginImport } from './pages/(auth)/_authLayout/login'
+import { Route as dashboardDashboardLayoutUserManagementRouteImport } from './pages/(dashboard)/_dashboardLayout/userManagement/route'
 import { Route as dashboardDashboardLayoutAdminIndexImport } from './pages/(dashboard)/_dashboardLayout/admin/index'
 import { Route as dashboardDashboardLayoutMenu1Menu11Import } from './pages/(dashboard)/_dashboardLayout/menu1/menu1-1'
 import { Route as dashboardDashboardLayoutDashboardWorkbenchImport } from './pages/(dashboard)/_dashboardLayout/dashboard/workbench'
@@ -78,6 +79,13 @@ const authAuthLayoutLoginRoute = authAuthLayoutLoginImport.update({
   path: '/login',
   getParentRoute: () => authAuthLayoutRoute,
 } as any)
+
+const dashboardDashboardLayoutUserManagementRouteRoute =
+  dashboardDashboardLayoutUserManagementRouteImport.update({
+    id: '/userManagement',
+    path: '/userManagement',
+    getParentRoute: () => dashboardDashboardLayoutRoute,
+  } as any)
 
 const dashboardDashboardLayoutAdminIndexRoute =
   dashboardDashboardLayoutAdminIndexImport.update({
@@ -174,6 +182,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/(dashboard)/_dashboardLayout/userManagement': {
+      id: '/(dashboard)/_dashboardLayout/userManagement'
+      path: '/userManagement'
+      fullPath: '/userManagement'
+      preLoaderRoute: typeof dashboardDashboardLayoutUserManagementRouteImport
+      parentRoute: typeof dashboardDashboardLayoutImport
+    }
     '/(auth)/_authLayout/login': {
       id: '/(auth)/_authLayout/login'
       path: '/login'
@@ -267,6 +282,7 @@ const authRouteChildren: authRouteChildren = {
 const authRouteWithChildren = authRoute._addFileChildren(authRouteChildren)
 
 interface dashboardDashboardLayoutRouteChildren {
+  dashboardDashboardLayoutUserManagementRouteRoute: typeof dashboardDashboardLayoutUserManagementRouteRoute
   dashboardDashboardLayoutDashboardUserRoute: typeof dashboardDashboardLayoutDashboardUserRoute
   dashboardDashboardLayoutDashboardWorkbenchRoute: typeof dashboardDashboardLayoutDashboardWorkbenchRoute
   dashboardDashboardLayoutMenu1Menu11Route: typeof dashboardDashboardLayoutMenu1Menu11Route
@@ -278,6 +294,8 @@ interface dashboardDashboardLayoutRouteChildren {
 
 const dashboardDashboardLayoutRouteChildren: dashboardDashboardLayoutRouteChildren =
   {
+    dashboardDashboardLayoutUserManagementRouteRoute:
+      dashboardDashboardLayoutUserManagementRouteRoute,
     dashboardDashboardLayoutDashboardUserRoute:
       dashboardDashboardLayoutDashboardUserRoute,
     dashboardDashboardLayoutDashboardWorkbenchRoute:
@@ -314,6 +332,7 @@ const dashboardRouteWithChildren = dashboardRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '/': typeof dashboardDashboardLayoutRouteWithChildren
   '/blog': typeof BlogIndexLazyRoute
+  '/userManagement': typeof dashboardDashboardLayoutUserManagementRouteRoute
   '/login': typeof authAuthLayoutLoginRoute
   '/signUp': typeof authAuthLayoutSignUpRoute
   '/dashboard/user': typeof dashboardDashboardLayoutDashboardUserRoute
@@ -328,6 +347,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof dashboardDashboardLayoutRouteWithChildren
   '/blog': typeof BlogIndexLazyRoute
+  '/userManagement': typeof dashboardDashboardLayoutUserManagementRouteRoute
   '/login': typeof authAuthLayoutLoginRoute
   '/signUp': typeof authAuthLayoutSignUpRoute
   '/dashboard/user': typeof dashboardDashboardLayoutDashboardUserRoute
@@ -347,6 +367,7 @@ export interface FileRoutesById {
   '/(dashboard)': typeof dashboardRouteWithChildren
   '/(dashboard)/_dashboardLayout': typeof dashboardDashboardLayoutRouteWithChildren
   '/blog/': typeof BlogIndexLazyRoute
+  '/(dashboard)/_dashboardLayout/userManagement': typeof dashboardDashboardLayoutUserManagementRouteRoute
   '/(auth)/_authLayout/login': typeof authAuthLayoutLoginRoute
   '/(auth)/_authLayout/signUp': typeof authAuthLayoutSignUpRoute
   '/(dashboard)/_dashboardLayout/dashboard/user': typeof dashboardDashboardLayoutDashboardUserRoute
@@ -363,6 +384,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/blog'
+    | '/userManagement'
     | '/login'
     | '/signUp'
     | '/dashboard/user'
@@ -376,6 +398,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/blog'
+    | '/userManagement'
     | '/login'
     | '/signUp'
     | '/dashboard/user'
@@ -393,6 +416,7 @@ export interface FileRouteTypes {
     | '/(dashboard)'
     | '/(dashboard)/_dashboardLayout'
     | '/blog/'
+    | '/(dashboard)/_dashboardLayout/userManagement'
     | '/(auth)/_authLayout/login'
     | '/(auth)/_authLayout/signUp'
     | '/(dashboard)/_dashboardLayout/dashboard/user'
@@ -462,6 +486,7 @@ export const routeTree = rootRoute
       "filePath": "(dashboard)/_dashboardLayout.tsx",
       "parent": "/(dashboard)",
       "children": [
+        "/(dashboard)/_dashboardLayout/userManagement",
         "/(dashboard)/_dashboardLayout/dashboard/user",
         "/(dashboard)/_dashboardLayout/dashboard/workbench",
         "/(dashboard)/_dashboardLayout/menu1/menu1-1",
@@ -473,6 +498,10 @@ export const routeTree = rootRoute
     },
     "/blog/": {
       "filePath": "blog/index.lazy.tsx"
+    },
+    "/(dashboard)/_dashboardLayout/userManagement": {
+      "filePath": "(dashboard)/_dashboardLayout/userManagement/route.tsx",
+      "parent": "/(dashboard)/_dashboardLayout"
     },
     "/(auth)/_authLayout/login": {
       "filePath": "(auth)/_authLayout/login.tsx",

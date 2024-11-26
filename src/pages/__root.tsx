@@ -8,9 +8,11 @@ import { Button } from "@douyinfe/semi-ui";
 import { motion } from "framer-motion";
 import page404 from "@src/assets/images/page/404.png";
 import { AuthContext } from "@src/hooks/useAuth";
+import { QueryClient } from "@tanstack/react-query";
 
 type RouterContext = {
   authentication: AuthContext;
+  queryClient: QueryClient;
 };
 
 export const Route = createRootRouteWithContext<RouterContext>()({
