@@ -9,6 +9,7 @@ import SideBar from "@src/pages/(dashboard)/-components/SideBar.tsx";
 import { useSettings } from "@src/store/settingsStore.ts";
 import { SpinLoading } from "@src/components/commons/Spin";
 import Watermark from "@uiw/react-watermark";
+import { ThemeMode } from "@src/types/enum";
 
 export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
   beforeLoad: async ({ context }) => {
@@ -20,7 +21,7 @@ export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
 });
 
 function DashboardLayout() {
-  const { isCollapsed } = useSettings();
+  const { isCollapsed, themeMode } = useSettings();
   const { status } = useRouterState();
   const username = localStorage.getItem("username");
   return (
@@ -46,7 +47,11 @@ function DashboardLayout() {
               gapX={120}
               gapY={120}
               className="h-full"
-              fontColor="rgba(0,0,0,0.1)"
+              fontColor={
+                themeMode === ThemeMode.Light
+                  ? "rgba(0,0,0,0.1)"
+                  : "rgba(198,202,205,0.1)"
+              }
             >
               {status === "pending" ? <SpinLoading /> : <Outlet />}
             </Watermark>

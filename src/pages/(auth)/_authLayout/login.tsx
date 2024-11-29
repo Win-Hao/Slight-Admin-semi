@@ -36,7 +36,7 @@ function Login() {
   const loginMutation = useMutation({
     mutationFn: signIn,
     onSuccess: (data, variables) => {
-      Toast.success({ content: data.msg, duration: 2000 });
+      Toast.success({ content: data.msg, duration: 2 });
       setIsAuthenticated();
       navigate({ to: "/dashboard/workbench" }).then();
       if (remember) {
@@ -48,7 +48,7 @@ function Login() {
       }
     },
     onError: (error) => {
-      Toast.error({ content: error.message, duration: 3000 });
+      Toast.error({ content: error.message, duration: 3 });
     },
   });
   const onSubmit: SubmitHandler<ValidationSchema> = (data) => {

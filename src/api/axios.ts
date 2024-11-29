@@ -79,4 +79,11 @@ instance.interceptors.response.use(
   export function post<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
     return instance.post(url, data, { ...config })
   }
-  
+  // 封装 put 方法
+  export function put<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
+    return instance.put(url, data, { ...config })
+  }
+  // 封装 delete 方法
+  export function del<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
+    return instance.delete(url, { data, ...config })
+  }

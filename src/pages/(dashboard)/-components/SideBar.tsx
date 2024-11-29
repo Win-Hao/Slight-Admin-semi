@@ -8,7 +8,13 @@ import { useLocation, useNavigate } from "@tanstack/react-router";
 import { MenuItemType } from "#types/entity.ts";
 import { useState } from "react";
 
-const SideBar = ({ isCollapseButton }: { isCollapseButton: boolean }) => {
+const SideBar = ({
+  isCollapseButton,
+  setSideBarSheetVisible,
+}: {
+  isCollapseButton: boolean;
+  setSideBarSheetVisible?: () => void;
+}) => {
   const settings = useSettings();
   const { setSettings } = useSettingsActions();
   const { isCollapsed } = settings;
@@ -29,7 +35,7 @@ const SideBar = ({ isCollapseButton }: { isCollapseButton: boolean }) => {
 
   const navigate = useNavigate();
   const navHandler = (path: string) => {
-    navigate({ to: path }).then();
+    navigate({ to: path }).then(() => setSideBarSheetVisible?.());
   };
 
   const createNavMenu = (items: MenuItemType[]) => {

@@ -1,6 +1,6 @@
 export type UserInfoType={
     id:number;
-    userName:string;
+    username:string;
     password:string;
     email:string;
     avatar:string;

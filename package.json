@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@douyinfe/semi-ui": "^2.67.0",
+    "@douyinfe/semi-ui": "^2.70.1",
     "@hookform/resolvers": "^3.9.1",
     "@icon-park/react": "^1.4.2",
     "@tanstack/react-query": "^5.60.2",
