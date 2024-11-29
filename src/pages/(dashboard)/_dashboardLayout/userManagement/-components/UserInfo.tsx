@@ -3,8 +3,8 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { userInfoQueryOptions } from "../-service/userQueryOptions";
 import { UserInfoType } from "@src/types/users";
 import { ColumnProps } from "@douyinfe/semi-ui/lib/es/table";
-import { EditUser } from "./editUser";
 import { DeleteUser } from "./DeleteUser";
+import { EditUser } from "./EditUser";
 
 export const UserInfo = () => {
   const { data, isFetching } = useSuspenseQuery(userInfoQueryOptions);
@@ -55,6 +55,7 @@ export const UserInfo = () => {
       dataSource={data.data?.user}
       pagination={false}
       loading={isFetching}
+      rowKey={(record) => String(record?.id)}
     />
   );
 };
