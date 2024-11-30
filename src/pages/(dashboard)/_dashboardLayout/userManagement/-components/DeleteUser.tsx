@@ -31,6 +31,7 @@ export const DeleteUser = ({ id }: DeleteUserProps) => {
       }
       visible={visible}
       onCancel={() => setVisible(false)}
+      onClickOutSide={() => setVisible(false)}
       onConfirm={() => deleteUserMutation.mutate(id)}
       okButtonProps={{ loading: deleteUserMutation.isPending }}
       position="bottomRight"
