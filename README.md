@@ -1,6 +1,6 @@
 <h1 align="center">Slight-Admin</h1>
 
-----
+---
 
 ![Static Badge](https://img.shields.io/badge/react-18.3.1-%3Cgreen%3E)
 
@@ -8,6 +8,11 @@
 
 [Slight-Admin](https://github.com/Win-Hao/Slight-Admin-semi) 是一个基于`React`和`Semi Design`
 的后台管理系统模板。他内置了用户登录/登出，动态路由，用户管理等典型的业务模型，可以帮助你快速搭建一个精美的后台管理系统,使用了最近比较火的tanstack-router进行路由管理，基于文件名的路由管理
+
+```
+账号: admin/editor/guest
+密码: 123456
+```
 
 # 功能
 

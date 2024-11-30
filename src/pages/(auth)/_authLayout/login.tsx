@@ -29,8 +29,8 @@ function Login() {
   } = useForm<ValidationSchema>({
     resolver: zodResolver(validationSchema),
     defaultValues: {
-      username: localStorage.getItem("username") || "",
-      password: localStorage.getItem("password") || "",
+      username: localStorage.getItem("username") || "admin",
+      password: localStorage.getItem("password") || "123456",
     },
   });
   const loginMutation = useMutation({
