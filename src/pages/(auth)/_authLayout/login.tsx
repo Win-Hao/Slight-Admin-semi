@@ -67,6 +67,7 @@ function Login() {
                 {...field}
                 size="large"
                 className="!rounded-md"
+                defaultValue={field.value}
                 prefix={
                   <User
                     theme="outline"
@@ -93,6 +94,7 @@ function Login() {
                 size="large"
                 mode="password"
                 className="!rounded-md"
+                defaultValue={field.value}
                 prefix={
                   <Key
                     theme="outline"
