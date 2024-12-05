@@ -23,6 +23,8 @@ export const Route = createFileRoute("/(dashboard)/_dashboardLayout")({
 function DashboardLayout() {
   const { isCollapsed, themeMode } = useSettings();
   const { status } = useRouterState();
+  const state = useRouterState();
+  console.log(state);
   const username = localStorage.getItem("username");
   return (
     <div className="flex h-full">

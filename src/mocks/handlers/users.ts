@@ -6,7 +6,7 @@ import { faker } from "@faker-js/faker";
 
 type CreateUserRequestBody  =ValidationSchema
 type EditUserRequestBody  =ValidationSchema&{id:number}
-const getUsers=http.get<never, never, never, '/api/userInfo'>('/api/userInfo',async()=>{
+const getUsers=http.get<never, never, never, '/api/users'>('/api/users',async()=>{
     await delay(1*1000)
     return HttpResponse.json({code:200,msg:'success',data:{user:USER_LIST}});
 })

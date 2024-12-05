@@ -1,7 +1,13 @@
+import schemaMap from "@src/schemas";
 import { redirect } from "@tanstack/react-router";
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
 const BASE_URL = `/api`; // 设置基础请求路径
+
+// 扩展 AxiosRequestConfig 接口以包含 schemaKey
+interface CustomAxiosRequestConfig extends AxiosRequestConfig {
+  schemaKey?: string; // 添加 schemaKey 为可选属性
+}
 
 // 定义响应数据的接口
 interface ApiResponse<T = any> {
@@ -42,9 +48,23 @@ instance.interceptors.response.use(
         // 可以根据自定义错误码来进行错误处理
         console.error(res.msg || 'Error');
         return Promise.reject(new Error(res.msg || 'Error'));
-      } else {
-        return response.data; // 直接返回实际数据
-      }
+      } 
+      // res.code === 200
+      const config = response.config as CustomAxiosRequestConfig;
+      const { schemaKey } = config;
+      if (schemaKey) {
+        const schema = schemaMap.get(schemaKey);
+        const result=schema?.safeParse(response.data);
+        if(result?.success){
+           // 直接返回实际数据
+          return result.data;
+        }
+        else{
+          console.log('Validation Error:', result?.error);
+          return Promise.reject(new Error('Invalid response structure'));
+        } 
+    }
+    return response.data;
     },
     (error) => {
       // 对响应错误做点什么
@@ -71,19 +91,18 @@ instance.interceptors.response.use(
       return Promise.reject(error);
     }
   );
-  export function get<T = any>(url: string, params?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>> {
+  export function get<T = any>(url: string, params?: any, config: CustomAxiosRequestConfig={}): Promise<ApiResponse<T>> {
     return instance.get(url, { params, ...config })
   }
-  
   // 封装 post 方法
-  export function post<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
+  export function post<T = any>(url: string, data?: any, config: CustomAxiosRequestConfig={}): Promise<ApiResponse<T>>{
     return instance.post(url, data, { ...config })
   }
   // 封装 put 方法
-  export function put<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
+  export function put<T = any>(url: string, data?: any, config: CustomAxiosRequestConfig={}): Promise<ApiResponse<T>>{
     return instance.put(url, data, { ...config })
   }
   // 封装 delete 方法
-  export function del<T = any>(url: string, data?: any, config: AxiosRequestConfig={}): Promise<ApiResponse<T>>{
+  export function del<T = any>(url: string, data?: any, config: CustomAxiosRequestConfig={}): Promise<ApiResponse<T>>{
     return instance.delete(url, { data, ...config })
   }
